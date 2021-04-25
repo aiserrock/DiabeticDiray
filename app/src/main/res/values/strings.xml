@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DiabeticDiray</string>
+    <string name="list">List</string>
+    <string name="graphs">Graphs</string>
+</resources>
