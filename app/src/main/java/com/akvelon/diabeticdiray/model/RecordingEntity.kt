@@ -11,14 +11,14 @@ data class RecordingEntity(
     var recordingId: Long = 0L,
 
     @ColumnInfo(name = "date")
-    var date: Long = System.currentTimeMillis(),
+    var date: String,
 
     @ColumnInfo(name = "sugar")
-    var sugar: String = "Sugar",
+    var sugar: String,
 
     @ColumnInfo(name = "insulin")
-    var insulin: String = "Insulin",
+    var insulin: String,
 
     @ColumnInfo(name = "textNote")
-    var textNote: String = "TextNote"
+    var textNote: String
 )

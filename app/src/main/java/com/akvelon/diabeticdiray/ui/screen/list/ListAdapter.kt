@@ -15,6 +15,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
             binding.dataTextView.text = recording.date.toString()
             binding.sugarTextView.text = recording.sugar
             binding.insulinTextView.text = recording.insulin
+            binding.noteTextView.text = recording.textNote
         }
 
         companion object {

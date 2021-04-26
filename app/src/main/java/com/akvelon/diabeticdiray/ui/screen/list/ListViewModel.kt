@@ -3,7 +3,6 @@ package com.akvelon.diabeticdiray.ui.screen.list
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.akvelon.diabeticdiray.database.RecordingDAO
-import com.akvelon.diabeticdiray.model.RecordingEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,16 +18,15 @@ class ListViewModel(
 
     val records = dao.getAll()
 
-    fun onAddButtonPressed() {
+    fun deleteAll() {
         uiScope.launch {
-            val newRecord = RecordingEntity()
-            insert(newRecord)
+            clear()
         }
     }
 
-    private suspend fun insert(recording: RecordingEntity) {
+    private suspend fun clear() {
         withContext(Dispatchers.IO) {
-            dao.insert(recording)
+            dao.clear()
         }
     }
 

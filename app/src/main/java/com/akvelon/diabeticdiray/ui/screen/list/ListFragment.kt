@@ -1,12 +1,11 @@
 package com.akvelon.diabeticdiray.ui.screen.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.akvelon.diabeticdiray.R
 import com.akvelon.diabeticdiray.database.RecordingDatabase
 import com.akvelon.diabeticdiray.databinding.FragmentListBinding
@@ -22,6 +21,7 @@ class ListFragment : Fragment() {
         val binding: FragmentListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_list, container, false
         )
+        setHasOptionsMenu(true)
 
         // Create viewModel
         val application = requireNotNull(this.activity).application
@@ -43,9 +43,20 @@ class ListFragment : Fragment() {
 
         // AddRecording button Listener
         binding.addRecording.setOnClickListener {
-            viewModel.onAddButtonPressed()
+            findNavController().navigate(R.id.action_listFragment_to_addRecordFragment)
         }
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.list_fragment_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete_all) {
+            viewModel.deleteAll()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
