@@ -30,13 +30,16 @@ class ListFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(ListViewModel::class.java)
 
-        //Set RecyclerView
+        // Set RecyclerView
         val adapter = ListAdapter()
         binding.recyclerView.adapter = adapter
-        viewModel.records.observe(viewLifecycleOwner,{records ->
-            if(records != null)
-                adapter.recordings = records
-        })
+        viewModel.records.observe(
+            viewLifecycleOwner,
+            { records ->
+                if (records != null)
+                    adapter.recordings = records
+            }
+        )
 
         // AddRecording button Listener
         binding.addRecording.setOnClickListener {

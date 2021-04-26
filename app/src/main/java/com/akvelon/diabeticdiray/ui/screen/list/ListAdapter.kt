@@ -30,7 +30,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
                 return ListViewHolder(binding)
             }
         }
-
     }
 
     var recordings = listOf<RecordingEntity>()
@@ -56,5 +55,3 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         return recordings.size
     }
 }
-
-
