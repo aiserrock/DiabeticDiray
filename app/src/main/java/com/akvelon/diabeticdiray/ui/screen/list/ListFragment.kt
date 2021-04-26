@@ -23,12 +23,22 @@ class ListFragment : Fragment() {
             inflater, R.layout.fragment_list, container, false
         )
 
+        // Create viewModel
         val application = requireNotNull(this.activity).application
         val dao = RecordingDatabase.getInstance(application).getRecordingDatabaseDao()
         val viewModelFactory = ListViewModelFactory(dao, application)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(ListViewModel::class.java)
 
+        //Set RecyclerView
+        val adapter = ListAdapter()
+        binding.recyclerView.adapter = adapter
+        viewModel.records.observe(viewLifecycleOwner,{records ->
+            if(records != null)
+                adapter.recordings = records
+        })
+
+        // AddRecording button Listener
         binding.addRecording.setOnClickListener {
             viewModel.onAddButtonPressed()
         }

@@ -17,7 +17,7 @@ class ListViewModel(
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val records = dao.getAll()
+    val records = dao.getAll()
 
     fun onAddButtonPressed() {
         uiScope.launch {

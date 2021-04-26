@@ -1,0 +1,60 @@
+package com.akvelon.diabeticdiray.ui.screen.list
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.akvelon.diabeticdiray.databinding.ListItemLayoutBinding
+import com.akvelon.diabeticdiray.model.RecordingEntity
+
+class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+
+    class ListViewHolder(private val binding: ListItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(recording: RecordingEntity) {
+            binding.dataTextView.text = recording.date.toString()
+            binding.sugarTextView.text = recording.sugar
+            binding.insulinTextView.text = recording.insulin
+        }
+
+        companion object {
+            // Метод принимает на вход родительский UI- элемент
+            // куда будет помещен создавааемый iewHolder
+            fun from(parent: ViewGroup): ListViewHolder {
+                // Инициализатор вида ViewHolder
+                val layoutInflater = LayoutInflater.from(parent.context)
+                // Загрузка макета вида элемента списка list_item_layout,
+                // Инициализирует элементы textViews и возвращает их
+                val binding = ListItemLayoutBinding.inflate(layoutInflater, parent, false)
+                // Возврат нового экземпляра холдера
+                return ListViewHolder(binding)
+            }
+        }
+
+    }
+
+    var recordings = listOf<RecordingEntity>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    // Метод создания экземпляров
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+        return ListViewHolder.from(parent)
+    }
+
+    // Предотсавляет информацию о том. каким образом элементы должны быть отрисованы
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+        // получить экземпляр модели RecordingEntity из списка data по позиции
+        val currentRecording = recordings[position]
+        // полученный экземпляр записываем в textViews
+        holder.bind(currentRecording)
+    }
+
+    override fun getItemCount(): Int {
+        return recordings.size
+    }
+}
+
+
