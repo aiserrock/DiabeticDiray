@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.akvelon.diabeticdiray.ui.screen.list.ListFragment"
+        android:name="com.zlogene.diabeticdiray.ui.screen.list.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list">
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/graphFragment"
-        android:name="com.akvelon.diabeticdiray.ui.screen.graph.GraphFragment"
+        android:name="com.zlogene.diabeticdiray.ui.screen.graph.GraphFragment"
         android:label="Graphs"
         tools:layout="@layout/fragment_graph" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.akvelon.diabeticdiray.ui.screen.list.detail.DetailFragment"
+        android:name="com.zlogene.diabeticdiray.ui.screen.list.detail.DetailFragment"
         android:label="Detail"
         tools:layout="@layout/fragment_detail" >
         <action
@@ -32,11 +32,11 @@
             app:destination="@id/listFragment" />
         <argument
             android:name="currentItem"
-            app:argType="com.akvelon.diabeticdiray.model.RecordingEntity" />
+            app:argType="com.zlogene.diabeticdiray.model.RecordingEntity" />
     </fragment>
     <fragment
         android:id="@+id/addRecordFragment"
-        android:name="com.akvelon.diabeticdiray.ui.screen.addrecord.AddRecordFragment"
+        android:name="com.zlogene.diabeticdiray.ui.screen.addrecord.AddRecordFragment"
         android:label="Add Record"
         tools:layout="@layout/fragment_add_record" >
         <action
