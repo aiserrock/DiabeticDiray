@@ -12,6 +12,7 @@ import com.akvelon.diabeticdiray.R
 import com.akvelon.diabeticdiray.database.RecordingDatabase
 import com.akvelon.diabeticdiray.databinding.FragmentDetailBinding
 import com.akvelon.diabeticdiray.model.RecordingEntity
+import com.akvelon.diabeticdiray.util.DataConverter
 
 class DetailFragment : Fragment() {
     private val args by navArgs<DetailFragmentArgs>()
@@ -37,7 +38,7 @@ class DetailFragment : Fragment() {
             layoutInflater, container, false
         )
 
-        binding?.currentDateTextView?.text = args.currentItem.date
+        binding?.currentDateTextView?.text = DataConverter.convertFromTimeMills(args.currentItem.date)
         binding?.currentSugarTextView?.text = args.currentItem.sugar
         binding?.currentInsulinTextView?.text = args.currentItem.insulin
         binding?.currentNoteEditText?.setText(args.currentItem.textNote)

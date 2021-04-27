@@ -14,7 +14,7 @@ data class RecordingEntity(
     var recordingId: Long = 0L,
 
     @ColumnInfo(name = "date")
-    var date: String,
+    var date: Long,
 
     @ColumnInfo(name = "sugar")
     var sugar: String,

@@ -6,6 +6,7 @@ import com.akvelon.diabeticdiray.database.RecordingDAO
 import com.akvelon.diabeticdiray.model.RecordingEntity
 import com.akvelon.diabeticdiray.util.DataConverter
 import kotlinx.coroutines.*
+import java.util.*
 
 class AddRecordViewModel(
     val dao: RecordingDAO,
@@ -16,7 +17,8 @@ class AddRecordViewModel(
 
     fun addRecord(sugar: String, insulin: String, note: String) {
         uiScope.launch {
-            val record = RecordingEntity(0L, DataConverter.currentDate(), sugar, insulin, note)
+            val calendar = Calendar.getInstance()
+            val record = RecordingEntity(0L, calendar.timeInMillis, sugar, insulin, note)
             insert(record)
         }
     }

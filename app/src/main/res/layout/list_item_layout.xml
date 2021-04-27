@@ -86,7 +86,7 @@
                     android:id="@+id/note_textViewLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
+                    android:layout_marginStart="100dp"
                     android:layout_marginTop="16dp"
                     android:text="Note :"
                     app:layout_constraintStart_toEndOf="@+id/sugar_textView"

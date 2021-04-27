@@ -29,88 +29,91 @@ class MainViewModel(
         }
     }
 
+    // convert normal data to timeMilss:
+    // https://codechi.com/dev-tools/date-to-millisecond-calculators/
+
     fun insertTestingData() {
         val list = listOf<RecordingEntity>(
             RecordingEntity(
                 0L,
-                "Apr 27,2021 22:31",
+                1619160300000L,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 27,2021 23:31",
+                1619509500000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 27,2021 12:31",
+                1619516700000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 27,2021 10:31",
+                1619552700000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 25,2021 22:51",
+                1619480700000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 23,2021 21:21",
+                1619207100000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 20,2021 12:11",
+                1618911900000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 28,2021 14:00",
+                1619610000000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Apr 29,2021 23:31",
+                1619728800000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Mar 27,2021 22:31",
+                1616870400000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "May 27,2021 22:31",
+                1622144400000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                "Nov 27,2021 22:31",
+                1637970000000,
                 (1..10).random().toString(),
                 (1..10).random().toString(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]

@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.akvelon.diabeticdiray.databinding.ListItemLayoutBinding
 import com.akvelon.diabeticdiray.model.RecordingEntity
+import com.akvelon.diabeticdiray.util.DataConverter
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
@@ -13,7 +14,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recording: RecordingEntity) {
-            binding.dataTextView.text = recording.date.toString()
+            binding.dataTextView.text = DataConverter.convertFromTimeMills(recording.date)
             binding.sugarTextView.text = recording.sugar
             binding.insulinTextView.text = recording.insulin
             binding.noteTextView.text = recording.textNote
