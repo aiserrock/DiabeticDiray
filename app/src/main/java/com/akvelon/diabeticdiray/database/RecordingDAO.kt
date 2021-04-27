@@ -23,7 +23,7 @@ interface RecordingDAO {
     fun clear()
 
     @Query("SELECT * FROM recording_table ORDER BY id DESC")
-    fun getAll(): LiveData<List<RecordingEntity>>
+    fun getAll(): LiveData<MutableList<RecordingEntity>>
 
     @Query("SELECT * FROM recording_table WHERE id = :key")
     fun get(key: Long): RecordingEntity?
