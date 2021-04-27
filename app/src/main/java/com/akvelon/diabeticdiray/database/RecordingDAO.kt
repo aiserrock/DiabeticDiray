@@ -27,4 +27,7 @@ interface RecordingDAO {
 
     @Query("SELECT * FROM recording_table WHERE id = :key")
     fun get(key: Long): RecordingEntity?
+
+    @Query("SELECT * FROM recording_table WHERE date >= :nowDateWithout24Hours AND date < :nowDate")
+    fun getAllFor24Hours(nowDate: Long, nowDateWithout24Hours: Long): RecordingEntity?
 }

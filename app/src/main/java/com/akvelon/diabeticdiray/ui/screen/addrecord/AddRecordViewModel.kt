@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.akvelon.diabeticdiray.database.RecordingDAO
 import com.akvelon.diabeticdiray.model.RecordingEntity
-import com.akvelon.diabeticdiray.util.DataConverter
 import kotlinx.coroutines.*
 import java.util.*
 

@@ -18,12 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // / Set Data in to db
-        val records = mViewModel.records
-        if (records.value.isNullOrEmpty()) {
-            mViewModel.insertTestingData()
-        }
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         navController = findNavController(R.id.navHostFragment)
 
@@ -31,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottomNavigationView.setupWithNavController(navController)
+    }
+
+    // TODO fix need, after activity destroy and then activity create
+    // insertTestingData insert data again
+    override fun onResume() {
+        super.onResume()
+        if (mViewModel.records.value.isNullOrEmpty()) {
+            mViewModel.insertTestingData()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

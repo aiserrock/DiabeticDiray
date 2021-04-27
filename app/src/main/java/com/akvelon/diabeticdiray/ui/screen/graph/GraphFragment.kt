@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.akvelon.diabeticdiray.databinding.FragmentGraphBinding
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
@@ -12,11 +13,10 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import java.util.*
 
-
 class GraphFragment : Fragment() {
     private var binding: FragmentGraphBinding? = null
-
-    private var mNumLabels = 3
+    private val viewModel: GraphViewModel by activityViewModels()
+    private var mNumLabels = 4
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +28,6 @@ class GraphFragment : Fragment() {
             layoutInflater, container, false
         )
 
-
         // generate Dates
         val calendar = Calendar.getInstance()
         val d1 = calendar.time
@@ -36,6 +35,8 @@ class GraphFragment : Fragment() {
         val d2 = calendar.time
         calendar.add(Calendar.DATE, 1)
         val d3 = calendar.time
+
+        // val list = viewModel.records24hour
 
         // Set Graph
         val graph = binding?.graph as GraphView
@@ -60,5 +61,3 @@ class GraphFragment : Fragment() {
         binding = null
     }
 }
-
-
