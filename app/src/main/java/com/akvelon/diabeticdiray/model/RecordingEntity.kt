@@ -1,9 +1,12 @@
 package com.akvelon.diabeticdiray.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "recording_table")
 data class RecordingEntity(
     @PrimaryKey(autoGenerate = true)
@@ -21,4 +24,4 @@ data class RecordingEntity(
 
     @ColumnInfo(name = "textNote")
     var textNote: String
-)
+) : Parcelable

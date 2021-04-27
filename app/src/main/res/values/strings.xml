@@ -10,4 +10,8 @@
     <string name="add_your_note_here">Add your note here</string>
     <string name="add">Add</string>
     <string name="delete_all">Delete All</string>
+    <string name="delete">Delete</string>
+    <string name="your_sugar">Your sugar</string>
+    <string name="date">Date</string>
+    <string name="your_insulin">Your insulin</string>
 </resources>

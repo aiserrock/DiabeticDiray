@@ -1,19 +1,98 @@
 package com.akvelon.diabeticdiray.ui.screen.list.detail
 
+import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.akvelon.diabeticdiray.R
+import com.akvelon.diabeticdiray.database.RecordingDatabase
+import com.akvelon.diabeticdiray.databinding.FragmentDetailBinding
+import com.akvelon.diabeticdiray.model.RecordingEntity
 
 class DetailFragment : Fragment() {
+    private val args by navArgs<DetailFragmentArgs>()
+    private var binding: FragmentDetailBinding? = null
+    private lateinit var viewModel: DetailViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    ): View {
+        // set menu
+        setHasOptionsMenu(true)
+
+        // Create viewModel
+        val application = requireNotNull(this.activity).application
+        val dao = RecordingDatabase.getInstance(application).getRecordingDatabaseDao()
+        val viewModelFactory = DetailViewModelFactory(dao, application)
+        viewModel = ViewModelProvider(this, viewModelFactory)
+            .get(DetailViewModel::class.java)
+
+        binding = FragmentDetailBinding.inflate(
+            layoutInflater, container, false
+        )
+
+        binding?.currentDateTextView?.text = args.currentItem.date
+        binding?.currentSugarTextView?.text = args.currentItem.sugar
+        binding?.currentInsulinTextView?.text = args.currentItem.insulin
+        binding?.currentNoteEditText?.setText(args.currentItem.textNote)
+
+        return binding!!.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.update_fragment_menu, menu)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_save -> updateItem()
+            R.id.menu_delete -> confirmItemRemoval()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun confirmItemRemoval() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewModel.deleteRecord(args.currentItem)
+            Toast.makeText(
+                requireContext(),
+                "Successfully Removed record!",
+                Toast.LENGTH_SHORT
+            ).show()
+            findNavController().navigate(R.id.action_detailFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete record?")
+        builder.setMessage("Are you sure you want to remove this record?")
+        builder.create().show()
+    }
+
+    private fun updateItem() {
+        val note = binding?.currentNoteEditText?.text.toString()
+
+        val updateItem = RecordingEntity(
+            args.currentItem.recordingId,
+            args.currentItem.date,
+            args.currentItem.sugar,
+            args.currentItem.insulin,
+            note
+        )
+        // Update current Item
+        viewModel.updateRecord(updateItem)
+        Toast.makeText(context, "Successfully updated!", Toast.LENGTH_SHORT).show()
+        // Navigate Back
+        findNavController().navigate(R.id.action_detailFragment_to_listFragment)
     }
 }

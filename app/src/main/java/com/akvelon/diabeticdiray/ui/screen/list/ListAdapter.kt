@@ -2,6 +2,7 @@ package com.akvelon.diabeticdiray.ui.screen.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.akvelon.diabeticdiray.databinding.ListItemLayoutBinding
 import com.akvelon.diabeticdiray.model.RecordingEntity
@@ -20,7 +21,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
         companion object {
             // Метод принимает на вход родительский UI- элемент
-            // куда будет помещен создавааемый iewHolder
+            // куда будет помещен создавааемый viewHolder
             fun from(parent: ViewGroup): ListViewHolder {
                 // Инициализатор вида ViewHolder
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -50,6 +51,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         val currentRecording = recordings[position]
         // полученный экземпляр записываем в textViews
         holder.bind(currentRecording)
+        // Redirect on detail fragment
+        holder.itemView.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToDetailFragment(recordings[position])
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
