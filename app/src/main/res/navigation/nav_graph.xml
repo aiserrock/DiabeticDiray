@@ -43,4 +43,9 @@
             android:id="@+id/action_addRecordFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.zlogene.diabeticdiray.ui.screen.statistics.StatisticsFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_statistics" />
 </navigation>

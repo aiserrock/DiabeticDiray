@@ -1,9 +1,8 @@
-package com.zlogene.diabeticdiray.ui.screen.graph
+package com.zlogene.diabeticdiray.ui.screen.statistics
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import java.util.*
 
-class GraphViewModel(
+class StatisticsViewModel(
     application: Application
 ) : AndroidViewModel(application)

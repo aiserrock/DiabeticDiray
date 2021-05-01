@@ -64,8 +64,6 @@ class DetailFragment : Fragment() {
         binding = null
     }
 
-
-
     private fun confirmItemRemoval() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
