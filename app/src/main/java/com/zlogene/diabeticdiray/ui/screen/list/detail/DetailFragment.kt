@@ -16,6 +16,7 @@ import com.zlogene.diabeticdiray.util.DataConverter
 
 class DetailFragment : Fragment() {
     private val args by navArgs<DetailFragmentArgs>()
+
     private var binding: FragmentDetailBinding? = null
     private lateinit var viewModel: DetailViewModel
 
@@ -50,11 +51,6 @@ class DetailFragment : Fragment() {
         inflater.inflate(R.menu.update_fragment_menu, menu)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_save -> updateItem()
@@ -62,6 +58,13 @@ class DetailFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+
 
     private fun confirmItemRemoval() {
         val builder = AlertDialog.Builder(requireContext())

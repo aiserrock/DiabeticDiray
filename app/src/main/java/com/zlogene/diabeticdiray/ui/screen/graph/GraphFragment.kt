@@ -16,7 +16,6 @@ import java.util.*
 class GraphFragment : Fragment() {
     private var binding: FragmentGraphBinding? = null
     private val viewModel: GraphViewModel by activityViewModels()
-    private var mNumLabels = 4
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,30 +27,6 @@ class GraphFragment : Fragment() {
             layoutInflater, container, false
         )
 
-        // generate Dates
-        val calendar = Calendar.getInstance()
-        val d1 = calendar.time
-        calendar.add(Calendar.DATE, 1)
-        val d2 = calendar.time
-        calendar.add(Calendar.DATE, 1)
-        val d3 = calendar.time
-
-        // val list = viewModel.records24hour
-
-        // Set Graph
-        val graph = binding?.graph as GraphView
-        val series = LineGraphSeries(
-            arrayOf(
-                DataPoint(d1, 1.0),
-                DataPoint(d2, 5.1),
-                DataPoint(d3, 3.3),
-            )
-        )
-        graph.addSeries(series)
-
-        // set date label formatter
-        graph.gridLabelRenderer.labelFormatter = DateAsXAxisLabelFormatter(graph.context)
-        graph.gridLabelRenderer.numHorizontalLabels = mNumLabels
 
         return binding!!.root
     }
