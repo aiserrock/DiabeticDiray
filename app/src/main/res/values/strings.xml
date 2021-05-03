@@ -15,4 +15,5 @@
     <string name="date">Date</string>
     <string name="your_insulin">Your insulin</string>
     <string name="add_test_data">Add Test Data</string>
+    <string name="statistics">Statistics</string>
 </resources>

@@ -10,9 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.zlogene.diabeticdiray.R
 import com.zlogene.diabeticdiray.database.RecordingDatabase
 import com.zlogene.diabeticdiray.databinding.FragmentListBinding
-import com.zlogene.diabeticdiray.model.RecordingEntity
-import java.util.*
-import kotlin.random.Random
 
 class ListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel

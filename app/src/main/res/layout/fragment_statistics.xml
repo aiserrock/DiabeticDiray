@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.screen.statistics.StatisticsFragment">
+        <!--SUGAR****************************************-->
+        <!--WEEK -->
+
+        <!--MONTH -->
+
+        <!--QUARTER-->
+
+        <!--YEAR-->
+
+        <!--INSULIN****************************************-->
+        <!--WEEK -->
+
+        <!--MONTH -->
+
+        <!--QUARTER-->
+
+        <!--YEAR-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sugar_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Sugar"
+                    android:textColor="#4CAF50"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/week_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/week_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/week_heading_textView" />
+
+                <TextView
+                    android:id="@+id/week_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/week_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/week_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/week_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/week_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/week_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/week_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/week_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/week_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/week_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/week_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/week_min_textView" />
+
+                <TextView
+                    android:id="@+id/week_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/week_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/week_avg_textView" />
+
+                <TextView
+                    android:id="@+id/week_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Week"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/sugar_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/sugar_heading_textView" />
+
+                <TextView
+                    android:id="@+id/month_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/month_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/month_heading_textView" />
+
+                <TextView
+                    android:id="@+id/month_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/month_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/month_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/month_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/month_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/month_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/month_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/month_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/month_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/month_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/month_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/month_min_textView" />
+
+                <TextView
+                    android:id="@+id/month_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/month_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/month_avg_textView" />
+
+                <TextView
+                    android:id="@+id/month_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:text="Month"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/week_min_textView"
+                    app:layout_constraintTop_toTopOf="@+id/week_heading_textView" />
+
+                <TextView
+                    android:id="@+id/quarter_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/quarter_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_heading_textView" />
+
+                <TextView
+                    android:id="@+id/quarter_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/quarter_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/quarter_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/quarter_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/quarter_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/quarter_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/quarter_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/quarter_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/quarter_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_min_textView" />
+
+                <TextView
+                    android:id="@+id/quarter_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/quarter_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_avg_textView" />
+
+                <TextView
+                    android:id="@+id/quarter_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Quater"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/week_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/week_max_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/year_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/year_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/year_heading_textView" />
+
+                <TextView
+                    android:id="@+id/year_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/year_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/year_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/year_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/year_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/year_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/year_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/year_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/year_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/year_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/year_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/year_min_textView" />
+
+                <TextView
+                    android:id="@+id/year_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/year_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/year_avg_textView" />
+
+                <TextView
+                    android:id="@+id/year_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Year"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/month_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/month_max_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:text="Insulin"
+                    android:textColor="#2196F3"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/quarter_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_max_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_week_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_week_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_week_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_week_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_week_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_week_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_week_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_week_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/insulin_week_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_week_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_week_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_min_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_week_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_week_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_avg_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_week_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Week"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_month_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_month_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_month_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_month_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_month_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_month_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_month_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_month_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/insulin_month_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_month_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_month_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_min_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_month_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_month_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_avg_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_month_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:text="Month"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_week_min_textView"
+                    app:layout_constraintTop_toTopOf="@+id/insulin_week_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_quarter_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_quarter_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_quarter_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_quarter_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_quarter_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_quarter_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_quarter_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/insulin_quarter_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_quarter_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_quarter_min_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_quarter_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_quarter_avg_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_quarter_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Quater"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_week_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_week_max_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_year_min_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Min"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_year_heading_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_year_heading_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_year_avg_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Avg"
+                    android:textColor="#FFBF00"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_year_min_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_year_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_year_max_textViewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Max"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_year_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_year_avg_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_year_min_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textColor="#2196F3"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_year_min_textViewLabel"
+                    app:layout_constraintTop_toTopOf="@+id/insulin_year_min_textViewLabel" />
+
+                <TextView
+                    android:id="@+id/insulin_year_avg_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#FFBF00"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_year_avg_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_year_min_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_year_max_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#F44336"
+                    app:layout_constraintStart_toEndOf="@+id/insulin_year_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_year_avg_textView" />
+
+                <TextView
+                    android:id="@+id/insulin_year_heading_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Year"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/insulin_month_max_textViewLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/insulin_month_max_textViewLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

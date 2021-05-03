@@ -18,9 +18,7 @@ data class RecordingEntity(
     var recordingId: Long = 0L,
 
     @ColumnInfo(name = "date")
-    @SerializedName("date")
-    @TypeConverters(DateConverter::class)
-    var date: Date,
+    var date: Long,
 
     @ColumnInfo(name = "sugar")
     var sugar: Float,

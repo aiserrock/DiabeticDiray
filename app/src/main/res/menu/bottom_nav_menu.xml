@@ -10,4 +10,8 @@
         android:id="@+id/graphFragment"
         android:icon="@drawable/ic_chart"
         android:title="@string/graphs" />
+    <item
+        android:id="@+id/statisticsFragment"
+        android:icon="@drawable/ic_statistics"
+        android:title="@string/statistics" />
 </menu>

@@ -89,12 +89,12 @@ class ListViewModel(
         }
     }
 
-    private fun getDate(year: Int, month: Int, day: Int, hour: Int): Date {
+    private fun getDate(year: Int, month: Int, day: Int, hour: Int): Long {
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.YEAR, year)
         calendar.set(Calendar.MONTH, month)
         calendar.set(Calendar.DAY_OF_MONTH, day)
         calendar.set(Calendar.HOUR_OF_DAY, hour)
-        return calendar.time
+        return calendar.timeInMillis
     }
 }

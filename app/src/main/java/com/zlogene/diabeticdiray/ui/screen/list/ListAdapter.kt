@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.zlogene.diabeticdiray.databinding.ListItemLayoutBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
+import com.zlogene.diabeticdiray.util.CustomDataConverter
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
@@ -13,7 +14,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recording: RecordingEntity) {
-            binding.dataTextView.text = recording.date.toString()
+            binding.dataTextView.text = CustomDataConverter.getDate(recording.date,"dd/MMM/yyyy hh:mm:ss")
             binding.sugarTextView.text = recording.sugar.toString()
             binding.insulinTextView.text = recording.insulin.toString()
             binding.noteTextView.text = recording.textNote

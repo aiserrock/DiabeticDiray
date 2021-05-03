@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.zlogene.diabeticdiray.model.RecordingEntity
+import java.util.*
 
 @Dao
 interface RecordingDAO {
@@ -25,6 +26,15 @@ interface RecordingDAO {
     @Query("SELECT * FROM recording_table ORDER BY date")
     fun getAll(): LiveData<MutableList<RecordingEntity>>
 
-    @Query("SELECT * FROM recording_table WHERE id = :key")
-    fun get(key: Long): RecordingEntity?
+    @Query("SELECT * FROM recording_table WHERE date BETWEEN date('now') AND date('now','-7 days') ORDER BY sugar")
+    fun getWeekSugar(): LiveData<MutableList<RecordingEntity>>
+
+    @Query("SELECT * FROM recording_table ORDER BY date")
+    fun getMonthSugar(): LiveData<MutableList<RecordingEntity>>
+
+    @Query("SELECT * FROM recording_table ORDER BY date")
+    fun getQuarterSugar(): LiveData<MutableList<RecordingEntity>>
+
+    @Query("SELECT * FROM recording_table ORDER BY date")
+    fun getYearSugar(): LiveData<MutableList<RecordingEntity>>
 }

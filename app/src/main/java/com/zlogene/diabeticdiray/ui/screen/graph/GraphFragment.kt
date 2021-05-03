@@ -14,6 +14,7 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import com.zlogene.diabeticdiray.databinding.FragmentGraphBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
+import java.util.*
 
 class GraphFragment : Fragment() {
     private var binding: FragmentGraphBinding? = null
@@ -52,11 +53,11 @@ class GraphFragment : Fragment() {
         if (it != null) {
             val dataSugar = arrayOfNulls<DataPoint>(it.size)
             for((index, value) in it.withIndex()){
-                dataSugar[index] = DataPoint(value.date, value.sugar.toDouble())
+                dataSugar[index] = DataPoint(Date(value.date), value.sugar.toDouble())
             }
             val dataInsulin = arrayOfNulls<DataPoint>(it.size)
             for((index, value) in it.withIndex()){
-                dataInsulin[index] = DataPoint(value.date, value.insulin.toDouble())
+                dataInsulin[index] = DataPoint(Date(value.date), value.insulin.toDouble())
             }
 
             // Setup sugar series

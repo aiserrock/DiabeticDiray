@@ -12,7 +12,6 @@ import com.zlogene.diabeticdiray.model.RecordingEntity
     version = 1,
     exportSchema = false
 )
-@TypeConverters(DateConverter::class)
 abstract class RecordingDatabase : RoomDatabase() {
     abstract fun getRecordingDatabaseDao(): RecordingDAO
 
