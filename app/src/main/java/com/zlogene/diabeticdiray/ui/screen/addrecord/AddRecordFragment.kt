@@ -1,7 +1,12 @@
 package com.zlogene.diabeticdiray.ui.screen.addrecord
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -9,6 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.zlogene.diabeticdiray.R
 import com.zlogene.diabeticdiray.database.RecordingDatabase
 import com.zlogene.diabeticdiray.databinding.FragmentAddRecordBinding
+import java.lang.Exception
+import java.lang.NumberFormatException
 
 class AddRecordFragment : Fragment() {
     private lateinit var viewModel: AddRecordViewModel
@@ -38,12 +45,21 @@ class AddRecordFragment : Fragment() {
     }
 
     fun correctFields(): Boolean {
-        if (binding!!.sugarEditText.text.toString().isNotEmpty() &&
-            binding!!.insulinEditText.text.toString().isNotEmpty()
-            //TODO add validation float input
-        )
-            return true
-        return false
+        var flag = false
+        try {
+            if (binding!!.sugarEditText.text.toString().isNotEmpty() &&
+                binding!!.insulinEditText.text.toString().isNotEmpty()&&
+                binding!!.sugarEditText.text.toString().toFloatOrNull()?.equals(null) == false &&
+                binding!!.insulinEditText.text.toString().toFloatOrNull()?.equals(null) == false
+            ) {
+                flag = true
+            }
+        } catch (e: Exception) {
+            Toast.makeText(context, "Incorrect input", Toast.LENGTH_SHORT).show()
+        }
+        finally {
+            return flag
+        }
     }
 
     fun saveButtonPressed() {
@@ -57,7 +73,11 @@ class AddRecordFragment : Fragment() {
             // Navigate Back
             findNavController().navigate(R.id.action_addRecordFragment_to_listFragment)
         } else {
-            Toast.makeText(context, "error, not all fields field", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "Error, not all fields field or incorrect input",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

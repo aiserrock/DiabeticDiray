@@ -2,7 +2,12 @@ package com.zlogene.diabeticdiray.ui.screen.list.detail
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -38,8 +43,7 @@ class DetailFragment : Fragment() {
             layoutInflater, container, false
         )
 
-
-        binding?.currentDateTextView?.text = CustomDataConverter.getDate(args.currentItem.date,"EEE MMM dd YYYY HH:mm ")
+        binding?.currentDateTextView?.text = CustomDataConverter.getDate(args.currentItem.date, "EEE MMM dd YYYY HH:mm ")
         binding?.currentSugarTextView?.text = args.currentItem.sugar.toString()
         binding?.currentInsulinTextView?.text = args.currentItem.insulin.toString()
         binding?.currentNoteEditText?.setText(args.currentItem.textNote)

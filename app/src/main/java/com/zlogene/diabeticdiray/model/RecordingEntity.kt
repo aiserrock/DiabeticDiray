@@ -4,12 +4,9 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 import kotlinx.android.parcel.Parcelize
-import com.google.gson.annotations.SerializedName
-import com.zlogene.diabeticdiray.database.DateConverter
-import java.util.*
 
+@Suppress("DEPRECATED_ANNOTATION")
 @Parcelize
 @Entity(tableName = "recording_table")
 data class RecordingEntity(
@@ -18,6 +15,7 @@ data class RecordingEntity(
     var recordingId: Long = 0L,
 
     @ColumnInfo(name = "date")
+    // in unix time DDDDDDDDDD
     var date: Long,
 
     @ColumnInfo(name = "sugar")

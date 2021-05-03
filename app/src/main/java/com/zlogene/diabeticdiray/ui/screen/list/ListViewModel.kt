@@ -5,12 +5,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.zlogene.diabeticdiray.database.RecordingDAO
 import com.zlogene.diabeticdiray.model.RecordingEntity
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.*
+import java.util.Calendar
 import kotlin.random.Random
 
 class ListViewModel(
@@ -46,7 +44,7 @@ class ListViewModel(
 
     fun addTestData() {
         val list = listOf<RecordingEntity>(
-            //last week
+            // last week
             RecordingEntity(
                 0L,
                 getDate(2021, 3, 27, 4),
@@ -75,7 +73,7 @@ class ListViewModel(
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
-            //last month
+            // last month
             RecordingEntity(
                 0L,
                 getDate(2021, 3, 15, 21),
@@ -119,7 +117,7 @@ class ListViewModel(
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
-            //last year
+            // last year
             RecordingEntity(
                 0L,
                 getDate(2020, 9, 18, 11),
@@ -141,6 +139,6 @@ class ListViewModel(
         calendar.set(Calendar.MONTH, month)
         calendar.set(Calendar.DAY_OF_MONTH, day)
         calendar.set(Calendar.HOUR_OF_DAY, hour)
-        return calendar.timeInMillis/1000
+        return calendar.timeInMillis / 1000
     }
 }

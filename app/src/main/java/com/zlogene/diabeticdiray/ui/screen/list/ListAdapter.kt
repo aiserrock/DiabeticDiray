@@ -14,7 +14,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recording: RecordingEntity) {
-            binding.dataTextView.text = CustomDataConverter.getDate(recording.date,"EEE MMM dd YYYY HH:mm")
+            binding.dataTextView.text = CustomDataConverter.getDate(recording.date, "EEE MMM dd YYYY HH:mm")
             binding.sugarTextView.text = recording.sugar.toString()
             binding.insulinTextView.text = recording.insulin.toString()
             binding.noteTextView.text = recording.textNote

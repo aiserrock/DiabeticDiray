@@ -1,20 +1,20 @@
 package com.zlogene.diabeticdiray.ui.screen.statistics
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.zlogene.diabeticdiray.database.RecordingDatabase
 import com.zlogene.diabeticdiray.databinding.FragmentStatisticsBinding
-
 
 class StatisticsFragment : Fragment() {
     private lateinit var viewModel: StatisticsViewModel
     private var binding: FragmentStatisticsBinding? = null
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Create viewModel

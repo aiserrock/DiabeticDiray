@@ -14,7 +14,7 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import com.zlogene.diabeticdiray.databinding.FragmentGraphBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
-import java.util.*
+import java.util.Date
 
 class GraphFragment : Fragment() {
     private var binding: FragmentGraphBinding? = null
@@ -31,35 +31,33 @@ class GraphFragment : Fragment() {
             layoutInflater, container, false
         )
 
-
-
         viewModel.records.observe(viewLifecycleOwner, { updateGraph(it) })
 
         return binding!!.root
     }
 
     private fun updateGraph(it: MutableList<RecordingEntity>?) {
-        //TODO настриоть график чтобы отображал корректно хотя бы 4 даты
-        //или заменить график
+        // TODO настриоть график чтобы отображал корректно хотя бы 4 даты
+        // или заменить график
 
         // Set Graph
         val graph = binding?.graph as GraphView
 
         // title axis
-        graph.gridLabelRenderer.verticalAxisTitle  = "Value"
-        graph.gridLabelRenderer.horizontalAxisTitle  = "Date"
+        graph.gridLabelRenderer.verticalAxisTitle = "Value"
+        graph.gridLabelRenderer.horizontalAxisTitle = "Date"
 
         // clear old series
         graph.series.clear()
         // getting data from db
         if (it != null) {
             val dataSugar = arrayOfNulls<DataPoint>(it.size)
-            for((index, value) in it.withIndex()){
-                dataSugar[index] = DataPoint(Date(value.date*1000), value.sugar.toDouble())
+            for ((index, value) in it.withIndex()) {
+                dataSugar[index] = DataPoint(Date(value.date * 1000), value.sugar.toDouble())
             }
             val dataInsulin = arrayOfNulls<DataPoint>(it.size)
-            for((index, value) in it.withIndex()){
-                dataInsulin[index] = DataPoint(Date(value.date*1000), value.insulin.toDouble())
+            for ((index, value) in it.withIndex()) {
+                dataInsulin[index] = DataPoint(Date(value.date * 1000), value.insulin.toDouble())
             }
 
             // Setup sugar series
@@ -88,7 +86,6 @@ class GraphFragment : Fragment() {
             graph.gridLabelRenderer.labelFormatter = DateAsXAxisLabelFormatter(graph.context)
             graph.gridLabelRenderer.numHorizontalLabels = mNumLabels
         }
-
     }
 
     override fun onDestroyView() {
