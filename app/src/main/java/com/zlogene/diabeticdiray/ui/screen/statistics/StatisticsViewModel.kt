@@ -18,109 +18,31 @@ class StatisticsViewModel(
     val calendar = Calendar.getInstance()
 
     // Sugar Live Data
-    val weekStatSugar = getStatWeekSugar()
-    val monthStatSugar = getStatMonthSugar()
-    val quarterStatSugar = getStatQuarterSugar()
-    val yearStatSugar = getStatYearSugar()
+    val weekStatSugar = dao.getWeekSugar()
+    val weekAVGSugar = dao.getAVGWeekSugar()
+
+    val monthStatSugar = dao.getMonthSugar()
+    val monthAVGSugar = dao.getAVGMonthSugar()
+
+    val quarterStatSugar = dao.getQuarterSugar()
+    val quarterAVGSugar = dao.getAVGQuarterSugar()
+
+    val yearStatSugar = dao.getYearSugar()
+    val yearAVGSugar = dao.getAVGYearSugar()
 
 
     //Insulin Live Data
-    //val weekStatInsulin = getStatWeekInsulin ()
-    //val monthStatInsulin  = getStatMonthInsulin ()
-    //val quarterStatInsulin  = getStatQuarterInsulin ()
-    //val yearStatInsulin  = getStatYearInsulin ()
+    val weekStatInsulin = dao.getWeekInsulin()
+    val weekAVGInsulin = dao.getAVGWeekInsulin()
 
-    fun getStatWeekSugar() {
-        viewModelScope.launch {
-            statWeekSugar()
-        }
-    }
+    val monthStatInsulin  = dao.getMonthInsulin()
+    val monthAVGInsulin = dao.getAVGMonthInsulin()
 
-    private suspend fun statWeekSugar() {
-        withContext(Dispatchers.IO) {
-            dao.getWeekSugar()
-        }
-    }
+    val quarterStatInsulin  = dao.getQuarterInsulin()
+    val quarterAVGInsulin = dao.getAVGQuarterInsulin()
 
-    fun getStatMonthSugar() {
-        viewModelScope.launch {
-            statMonthSugar()
-        }
-    }
+    val yearStatInsulin  = dao.getYearInsulin()
+    val yearAVGInsulin = dao.getAVGYearInsulin()
 
-    private suspend fun statMonthSugar() {
-        withContext(Dispatchers.IO) {
-            dao.getMonthSugar()
-        }
-    }
 
-    fun getStatQuarterSugar() {
-        viewModelScope.launch {
-            statQuarterSugar()
-        }
-    }
-
-    private suspend fun statQuarterSugar() {
-        withContext(Dispatchers.IO) {
-            dao.getQuarterSugar()
-        }
-    }
-
-    fun getStatYearSugar() {
-        viewModelScope.launch {
-            statYearSugar()
-        }
-    }
-
-    private suspend fun statYearSugar() {
-        withContext(Dispatchers.IO) {
-            dao.getYearSugar()
-        }
-    }
-
-//    // Insulin
-//
-//    fun getStatWeekInsulin() {
-//        viewModelScope.launch {
-//            statWeekInsulin()
-//        }
-//    }
-//    private suspend fun statWeekInsulin() {
-//        withContext(Dispatchers.IO) {
-//            dao.getWeekInsulin()
-//        }
-//    }
-//
-//    fun getStatMonthInsulin() {
-//        viewModelScope.launch {
-//            statMonthInsulin()
-//        }
-//    }
-//    private suspend fun statMonthInsulin() {
-//        withContext(Dispatchers.IO) {
-//            dao.getMonthInsulin()
-//        }
-//    }
-//
-//    fun getStatQuarterInsulin() {
-//        viewModelScope.launch {
-//            statQuarterInsulin()
-//        }
-//    }
-//    private suspend fun statQuarterInsulin() {
-//        withContext(Dispatchers.IO) {
-//            dao.getQuarterInsulin()
-//        }
-//    }
-//
-//    fun getStatYearInsulin() {
-//        viewModelScope.launch {
-//            statYearInsulin()
-//        }
-//    }
-//    private suspend fun statYearInsulin() {
-//        withContext(Dispatchers.IO) {
-//            dao.getYearInsulin()
-//        }
-//    }
 }

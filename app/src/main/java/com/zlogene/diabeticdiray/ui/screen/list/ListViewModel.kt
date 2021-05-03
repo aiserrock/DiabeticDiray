@@ -18,7 +18,7 @@ class ListViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    val records = dao.getAll()
+    val records = dao.getAllDesc()
 
     fun deleteAll() {
         viewModelScope.launch {
@@ -46,37 +46,83 @@ class ListViewModel(
 
     fun addTestData() {
         val list = listOf<RecordingEntity>(
+            //last week
             RecordingEntity(
                 0L,
-                getDate(2021, 4, 25, 4),
+                getDate(2021, 3, 27, 4),
                 (1..10).random().toFloat(),
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                getDate(2021, 4, 26, 5),
+                getDate(2021, 3, 28, 5),
                 (1..10).random().toFloat(),
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                getDate(2021, 4, 27, 13),
+                getDate(2021, 3, 29, 13),
                 (1..10).random().toFloat(),
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                getDate(2021, 4, 11, 23),
+                getDate(2021, 3, 29, 23),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            //last month
+            RecordingEntity(
+                0L,
+                getDate(2021, 3, 15, 21),
                 (1..10).random().toFloat(),
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
             RecordingEntity(
                 0L,
-                getDate(2021, 4, 15, 11),
+                getDate(2021, 3, 7, 19),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            RecordingEntity(
+                0L,
+                getDate(2021, 3, 18, 17),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            // last quarter
+            RecordingEntity(
+                0L,
+                getDate(2021, 2, 7, 11),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            RecordingEntity(
+                0L,
+                getDate(2021, 1, 22, 15),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            RecordingEntity(
+                0L,
+                getDate(2021, 2, 15, 13),
+                (1..10).random().toFloat(),
+                (1..10).random().toFloat(),
+                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
+            ),
+            //last year
+            RecordingEntity(
+                0L,
+                getDate(2020, 9, 18, 11),
                 (1..10).random().toFloat(),
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
@@ -95,6 +141,6 @@ class ListViewModel(
         calendar.set(Calendar.MONTH, month)
         calendar.set(Calendar.DAY_OF_MONTH, day)
         calendar.set(Calendar.HOUR_OF_DAY, hour)
-        return calendar.timeInMillis
+        return calendar.timeInMillis/1000
     }
 }

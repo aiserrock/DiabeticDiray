@@ -19,8 +19,11 @@ class CustomDataConverter {
 
             // Create a calendar object that will convert the date and time value in milliseconds to date.
             val calendar: Calendar = Calendar.getInstance()
-            calendar.timeInMillis = milliSeconds
+            calendar.timeInMillis = milliSeconds*1000
             return formatter.format(calendar.time)
+        }
+        fun getDateUnix(milliSeconds: Long):Long{
+            return (milliSeconds/1000).toLong()
         }
     }
 

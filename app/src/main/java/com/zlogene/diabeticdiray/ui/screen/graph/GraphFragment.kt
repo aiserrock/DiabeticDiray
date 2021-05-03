@@ -39,6 +39,8 @@ class GraphFragment : Fragment() {
     }
 
     private fun updateGraph(it: MutableList<RecordingEntity>?) {
+        //TODO настриоть график чтобы отображал корректно хотя бы 4 даты
+        //или заменить график
 
         // Set Graph
         val graph = binding?.graph as GraphView
@@ -53,11 +55,11 @@ class GraphFragment : Fragment() {
         if (it != null) {
             val dataSugar = arrayOfNulls<DataPoint>(it.size)
             for((index, value) in it.withIndex()){
-                dataSugar[index] = DataPoint(Date(value.date), value.sugar.toDouble())
+                dataSugar[index] = DataPoint(Date(value.date*1000), value.sugar.toDouble())
             }
             val dataInsulin = arrayOfNulls<DataPoint>(it.size)
             for((index, value) in it.withIndex()){
-                dataInsulin[index] = DataPoint(Date(value.date), value.insulin.toDouble())
+                dataInsulin[index] = DataPoint(Date(value.date*1000), value.insulin.toDouble())
             }
 
             // Setup sugar series

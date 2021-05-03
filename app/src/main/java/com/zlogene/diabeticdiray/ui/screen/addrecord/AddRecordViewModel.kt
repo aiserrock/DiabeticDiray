@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.zlogene.diabeticdiray.database.RecordingDAO
 import com.zlogene.diabeticdiray.model.RecordingEntity
+import com.zlogene.diabeticdiray.util.CustomDataConverter
 import kotlinx.coroutines.*
 import java.util.*
 
@@ -17,7 +18,13 @@ class AddRecordViewModel(
     fun addRecord(sugar: String, insulin: String, note: String) {
         uiScope.launch {
             val calendar = Calendar.getInstance()
-            val record = RecordingEntity(0L, calendar.timeInMillis, sugar.toFloat(), insulin.toFloat(), note)
+            val record = RecordingEntity(
+                0L,
+                CustomDataConverter.getDateUnix(calendar.timeInMillis),
+                sugar.toFloat(),
+                insulin.toFloat(),
+                note
+            )
             insert(record)
         }
     }

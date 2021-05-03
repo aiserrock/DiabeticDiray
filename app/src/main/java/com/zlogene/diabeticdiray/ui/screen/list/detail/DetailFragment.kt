@@ -12,6 +12,7 @@ import com.zlogene.diabeticdiray.R
 import com.zlogene.diabeticdiray.database.RecordingDatabase
 import com.zlogene.diabeticdiray.databinding.FragmentDetailBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
+import com.zlogene.diabeticdiray.util.CustomDataConverter
 
 class DetailFragment : Fragment() {
     private val args by navArgs<DetailFragmentArgs>()
@@ -37,7 +38,8 @@ class DetailFragment : Fragment() {
             layoutInflater, container, false
         )
 
-        binding?.currentDateTextView?.text = args.currentItem.date.toString()
+
+        binding?.currentDateTextView?.text = CustomDataConverter.getDate(args.currentItem.date,"EEE MMM dd YYYY HH:mm ")
         binding?.currentSugarTextView?.text = args.currentItem.sugar.toString()
         binding?.currentInsulinTextView?.text = args.currentItem.insulin.toString()
         binding?.currentNoteEditText?.setText(args.currentItem.textNote)

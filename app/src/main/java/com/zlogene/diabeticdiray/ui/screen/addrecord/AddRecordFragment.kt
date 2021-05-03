@@ -40,6 +40,7 @@ class AddRecordFragment : Fragment() {
     fun correctFields(): Boolean {
         if (binding!!.sugarEditText.text.toString().isNotEmpty() &&
             binding!!.insulinEditText.text.toString().isNotEmpty()
+            //TODO add validation float input
         )
             return true
         return false
