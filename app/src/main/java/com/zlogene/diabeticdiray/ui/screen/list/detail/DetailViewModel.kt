@@ -13,6 +13,7 @@ class DetailViewModel(
     val dao: RecordingDAO,
     application: Application
 ) : AndroidViewModel(application) {
+
     fun updateRecord(record: RecordingEntity) {
         viewModelScope.launch {
             update(record)
