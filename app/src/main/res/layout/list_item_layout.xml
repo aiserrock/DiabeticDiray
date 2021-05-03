@@ -68,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="sugar :"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/data_textView"
                     app:layout_constraintTop_toBottomOf="@+id/data_textView" />
 
@@ -78,6 +79,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="insulin :"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/sugar_textViewLabel"
                     app:layout_constraintTop_toBottomOf="@+id/sugar_textViewLabel" />
@@ -87,8 +89,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="48dp"
                     android:text="Note :"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/sugar_textView"
                     app:layout_constraintTop_toTopOf="parent" />
 
