@@ -10,6 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.zlogene.diabeticdiray.R
 import com.zlogene.diabeticdiray.database.RecordingDatabase
 import com.zlogene.diabeticdiray.databinding.FragmentListBinding
+import com.zlogene.diabeticdiray.model.RecordingEntity
+import java.util.*
+import kotlin.random.Random
 
 class ListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel
@@ -57,11 +60,14 @@ class ListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete_all) {
-            confirmRemoval()
+        when (item.itemId) {
+            R.id.menu_add_test_data -> viewModel.addTestData()
+            R.id.menu_delete_all -> confirmRemoval()
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
     // Show AlertDialog to Confirm Removal of All Items from Database Table
     private fun confirmRemoval() {

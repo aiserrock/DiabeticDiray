@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private val mViewModel: MainViewModel by viewModels()
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,15 +24,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottomNavigationView.setupWithNavController(navController)
-    }
-
-    // TODO fix need, after activity destroy and then activity create
-    // insertTestingData insert data again
-    override fun onResume() {
-        super.onResume()
-        if (mViewModel.records.value.isNullOrEmpty()) {
-            mViewModel.insertTestingData()
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

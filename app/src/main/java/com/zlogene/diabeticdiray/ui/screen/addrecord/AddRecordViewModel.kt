@@ -17,7 +17,7 @@ class AddRecordViewModel(
     fun addRecord(sugar: String, insulin: String, note: String) {
         uiScope.launch {
             val calendar = Calendar.getInstance()
-            val record = RecordingEntity(0L, calendar.timeInMillis, sugar, insulin, note)
+            val record = RecordingEntity(0L, calendar.time, sugar.toFloat(), insulin.toFloat(), note)
             insert(record)
         }
     }

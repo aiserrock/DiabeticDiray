@@ -74,5 +74,8 @@ dependencies {
 
     //Graph Library for android
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 

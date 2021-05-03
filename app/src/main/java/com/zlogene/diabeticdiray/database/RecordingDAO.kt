@@ -22,12 +22,9 @@ interface RecordingDAO {
     @Query("DELETE FROM recording_table")
     fun clear()
 
-    @Query("SELECT * FROM recording_table ORDER BY id DESC")
+    @Query("SELECT * FROM recording_table ORDER BY date")
     fun getAll(): LiveData<MutableList<RecordingEntity>>
 
     @Query("SELECT * FROM recording_table WHERE id = :key")
     fun get(key: Long): RecordingEntity?
-
-    @Query("SELECT * FROM recording_table WHERE date >= :nowDateWithout24Hours AND date < :nowDate")
-    fun getAllFor24Hours(nowDate: Long, nowDateWithout24Hours: Long): RecordingEntity?
 }

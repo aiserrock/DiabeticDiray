@@ -6,7 +6,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.zlogene.diabeticdiray.databinding.ListItemLayoutBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
-import com.zlogene.diabeticdiray.util.DataConverter
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
@@ -14,9 +13,9 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recording: RecordingEntity) {
-            binding.dataTextView.text = DataConverter.convertFromTimeMills(recording.date)
-            binding.sugarTextView.text = recording.sugar
-            binding.insulinTextView.text = recording.insulin
+            binding.dataTextView.text = recording.date.toString()
+            binding.sugarTextView.text = recording.sugar.toString()
+            binding.insulinTextView.text = recording.insulin.toString()
             binding.noteTextView.text = recording.textNote
         }
 
