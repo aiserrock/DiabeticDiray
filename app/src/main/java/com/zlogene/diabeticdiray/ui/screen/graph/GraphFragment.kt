@@ -45,7 +45,7 @@ class GraphFragment : Fragment() {
     class MyXAxisFormatter : ValueFormatter() {
         @SuppressLint("SimpleDateFormat")
         private val mFormat = SimpleDateFormat("dd MMM HH:mm", Locale.ENGLISH)
-        override fun getFormattedValue(value: Float, axis: AxisBase?): String? {
+        override fun getAxisLabel(value: Float, axis: AxisBase?): String? {
             return mFormat.format(Date(value.toLong()))
         }
     }
@@ -62,7 +62,6 @@ class GraphFragment : Fragment() {
         chart.setTouchEnabled(true)
         chart.dragDecelerationFrictionCoef = 0.9f
 
-        // enable scaling and dragging
 
         // enable scaling and dragging
         chart.isDragEnabled = true
@@ -95,7 +94,7 @@ class GraphFragment : Fragment() {
         leftAxis.setDrawGridLines(true)
         leftAxis.isGranularityEnabled = true
         leftAxis.axisMinimum = 0f
-        leftAxis.axisMaximum = 10f
+        leftAxis.axisMaximum = 12f
         leftAxis.yOffset = -9f
         leftAxis.textColor = Color.BLACK
 
@@ -118,14 +117,11 @@ class GraphFragment : Fragment() {
             // create a datasetSugar and give it a type
             val setSugar = LineDataSet(valuesSugar, "Sugar")
             setSugar.axisDependency = AxisDependency.LEFT
-            setSugar.color = ColorTemplate.getHoloBlue()
             setSugar.valueTextColor = ColorTemplate.getHoloBlue()
             setSugar.lineWidth = 3.0f
             setSugar.setDrawCircles(false)
             setSugar.setDrawValues(false)
-            setSugar.fillAlpha = 65
-            setSugar.color = Color.GREEN
-            setSugar.highLightColor = Color.rgb(124, 252, 0)
+            setSugar.color = Color.RED
             setSugar.setDrawCircleHole(false)
 
             // create a datasetInsulin and give it a type

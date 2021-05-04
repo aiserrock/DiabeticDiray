@@ -117,14 +117,6 @@ class ListViewModel(
                 (1..10).random().toFloat(),
                 "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
             ),
-            // last year
-            RecordingEntity(
-                0L,
-                getDate(2020, 9, 18, 11),
-                (1..10).random().toFloat(),
-                (1..10).random().toFloat(),
-                "All " + arrayOf("Good", "Bad", "Normal")[Random.nextInt(3)]
-            ),
         )
 
         val iterator = list.listIterator()
