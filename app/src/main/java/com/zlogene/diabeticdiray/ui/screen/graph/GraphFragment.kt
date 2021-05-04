@@ -1,5 +1,6 @@
 package com.zlogene.diabeticdiray.ui.screen.graph
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,19 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.jjoe64.graphview.GraphView
-import com.jjoe64.graphview.LegendRenderer
-import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
-import com.jjoe64.graphview.series.DataPoint
-import com.jjoe64.graphview.series.LineGraphSeries
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.AxisBase
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.components.YAxis.AxisDependency
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.ValueFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.zlogene.diabeticdiray.databinding.FragmentGraphBinding
 import com.zlogene.diabeticdiray.model.RecordingEntity
-import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 class GraphFragment : Fragment() {
     private var binding: FragmentGraphBinding? = null
     private val viewModel: GraphViewModel by activityViewModels()
-    private var mNumLabels = 4
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,55 +42,114 @@ class GraphFragment : Fragment() {
         return binding!!.root
     }
 
+    class MyXAxisFormatter : ValueFormatter() {
+        @SuppressLint("SimpleDateFormat")
+        private val mFormat = SimpleDateFormat("dd MMM HH:mm", Locale.ENGLISH)
+        override fun getFormattedValue(value: Float, axis: AxisBase?): String? {
+            return mFormat.format(Date(value.toLong()))
+        }
+    }
+
     private fun updateGraph(it: MutableList<RecordingEntity>?) {
-        // TODO настриоть график чтобы отображал корректно хотя бы 4 даты
-        // или заменить график
-
         // Set Graph
-        val graph = binding?.graph as GraphView
+        val chart = binding?.chart as LineChart
 
-        // title axis
-        graph.gridLabelRenderer.verticalAxisTitle = "Value"
-        graph.gridLabelRenderer.horizontalAxisTitle = "Date"
+        // redraw
+        chart.invalidate()
 
-        // clear old series
-        graph.series.clear()
-        // getting data from db
+
+        // enable touch gestures
+        chart.setTouchEnabled(true)
+        chart.dragDecelerationFrictionCoef = 0.9f
+
+        // enable scaling and dragging
+
+        // enable scaling and dragging
+        chart.isDragEnabled = true
+        chart.setScaleEnabled(true)
+        chart.setDrawGridBackground(false)
+        chart.isHighlightPerDragEnabled = true
+
+        // set an alternative background color
+        chart.setBackgroundColor(Color.WHITE)
+        chart.setViewPortOffsets(0f, 0f, 0f, 0f)
+
+
+        // get the legend (only possible after setting data)
+        val l = chart.legend
+        l.isEnabled = true
+
+        val xAxis = chart.xAxis
+        xAxis.position = XAxis.XAxisPosition.TOP_INSIDE
+        xAxis.textSize = 10f
+        xAxis.setDrawAxisLine(false)
+        xAxis.setDrawGridLines(true)
+        xAxis.textColor = Color.BLACK
+        xAxis.setCenterAxisLabels(true)
+        xAxis.valueFormatter = MyXAxisFormatter()
+
+
+        val leftAxis = chart.axisLeft
+        leftAxis.setPosition(YAxis.YAxisLabelPosition.INSIDE_CHART)
+        leftAxis.textColor = ColorTemplate.getHoloBlue()
+        leftAxis.setDrawGridLines(true)
+        leftAxis.isGranularityEnabled = true
+        leftAxis.axisMinimum = 0f
+        leftAxis.axisMaximum = 10f
+        leftAxis.yOffset = -9f
+        leftAxis.textColor = Color.BLACK
+
+        val rightAxis = chart.axisRight
+        rightAxis.isEnabled = false
+
+
+
+
         if (it != null) {
-            val dataSugar = arrayOfNulls<DataPoint>(it.size)
-            for ((index, value) in it.withIndex()) {
-                dataSugar[index] = DataPoint(Date(value.date * 1000), value.sugar.toDouble())
+            val valuesSugar = ArrayList<Entry>()
+            for (value in it) {
+                valuesSugar.add(Entry((value.date * 1000).toFloat(), value.sugar))
             }
-            val dataInsulin = arrayOfNulls<DataPoint>(it.size)
-            for ((index, value) in it.withIndex()) {
-                dataInsulin[index] = DataPoint(Date(value.date * 1000), value.insulin.toDouble())
+            val valuesInsulin = ArrayList<Entry>()
+            for (value in it) {
+                valuesInsulin.add(Entry((value.date * 1000).toFloat(), value.insulin))
             }
 
-            // Setup sugar series
-            val sugarSeries = LineGraphSeries(dataSugar)
-            // styling series
-            sugarSeries.title = "Sugar"
-            sugarSeries.color = Color.GREEN
-            sugarSeries.isDrawDataPoints = true
-            sugarSeries.thickness = 8
-            graph.addSeries(sugarSeries)
+            // create a datasetSugar and give it a type
+            val setSugar = LineDataSet(valuesSugar, "Sugar")
+            setSugar.axisDependency = AxisDependency.LEFT
+            setSugar.color = ColorTemplate.getHoloBlue()
+            setSugar.valueTextColor = ColorTemplate.getHoloBlue()
+            setSugar.lineWidth = 3.0f
+            setSugar.setDrawCircles(false)
+            setSugar.setDrawValues(false)
+            setSugar.fillAlpha = 65
+            setSugar.color = Color.GREEN
+            setSugar.highLightColor = Color.rgb(124, 252, 0)
+            setSugar.setDrawCircleHole(false)
 
-            // Setup insulin series
-            val insulinSeries = LineGraphSeries(dataInsulin)
-            // styling series
-            insulinSeries.title = "Insulin"
-            insulinSeries.color = Color.BLUE
-            insulinSeries.isDrawDataPoints = true
-            insulinSeries.thickness = 8
-            graph.addSeries(insulinSeries)
+            // create a datasetInsulin and give it a type
+            val setInsulin = LineDataSet(valuesInsulin, "Insulin")
+            setInsulin.axisDependency = AxisDependency.LEFT
+            setInsulin.color = ColorTemplate.getHoloBlue()
+            setInsulin.valueTextColor = ColorTemplate.getHoloBlue()
+            setInsulin.lineWidth = 3.0f
+            setInsulin.setDrawCircles(false)
+            setInsulin.setDrawValues(false)
+            setInsulin.fillAlpha = 65
+            setSugar.color = Color.BLUE
+            setInsulin.highLightColor = Color.BLUE
+            setInsulin.setDrawCircleHole(false)
 
-            // legend
-            graph.legendRenderer.isVisible = true
-            graph.legendRenderer.align = LegendRenderer.LegendAlign.TOP
 
-            // set date label formatter
-            graph.gridLabelRenderer.labelFormatter = DateAsXAxisLabelFormatter(graph.context)
-            graph.gridLabelRenderer.numHorizontalLabels = mNumLabels
+            // create a data object with the data sets
+            val data = LineData(setSugar, setInsulin)
+            data.setValueTextColor(Color.BLACK)
+            data.setValueTextSize(9f)
+
+            // set data
+            chart.data = data
+
         }
     }
 
